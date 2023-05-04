@@ -33,6 +33,8 @@ $(document).ready(function () {
     localStorage.setItem(id, task)
     showTask()
   })
+  
+  // calling function when page first loads to get all items in local storage
   showTask()
 });
 
