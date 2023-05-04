@@ -1,6 +1,24 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+var dayjs = dayjs();
+
+$(document).ready(function () {
+  var currentTime = dayjs.format("dddd, MMMM DD, YYYY");
+  $("#currentDay").text(currentTime);
+  var currentHour = dayjs.hour();
+
+  // make a loop for each time block div
+  var timeBlock = $(".description");
+  timeBlock.each(function () {
+    var timeBlockId = $(this).attr("id");
+
+    if (currentHour < timeBlockId) {
+      $(this).addClass("past");
+    }
+  });
+});
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
