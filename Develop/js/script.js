@@ -8,7 +8,7 @@ $(document).ready(function () {
   var currentHour = dayjs.hour();
   var saveNote = $(".saveBtn")
 
-  // make a loop for each time block updating with the current time and changing the color of the time blocks
+  // make a loop for each time block updating with the current time and changing the color of the time blocks depending on current time 
   var timeBlock = $(".description");
   timeBlock.each(function () {
     var timeBlockId = $(this).attr("id");
@@ -26,7 +26,7 @@ $(document).ready(function () {
       $(this).addClass("future");
     }
   });
-
+// save the text writen so when the page is reloaded it stay in local storage
   saveNote.on("click", function() {
     var id = $(this).attr("id")
     var task = $(this).siblings(".description").val()
